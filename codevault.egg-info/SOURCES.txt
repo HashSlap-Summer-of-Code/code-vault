@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+codevault/__init__.py
+codevault/cli.py
+codevault/crypto.py
+codevault/storage.py
+codevault.egg-info/PKG-INFO
+codevault.egg-info/SOURCES.txt
+codevault.egg-info/dependency_links.txt
+codevault.egg-info/entry_points.txt
+codevault.egg-info/requires.txt
+codevault.egg-info/top_level.txt
