@@ -4,6 +4,9 @@ setup.py
 codevault/__init__.py
 codevault/cli.py
 codevault/crypto.py
+codevault/init.py
+codevault/models.py
+codevault/setup.py
 codevault/storage.py
 codevault.egg-info/PKG-INFO
 codevault.egg-info/SOURCES.txt
