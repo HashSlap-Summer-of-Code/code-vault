@@ -3,7 +3,10 @@ import getpass
 from pathlib import Path
 from .storage import initialize_vault, save_snippets, load_snippets
 
-# Initialize vault directory
+# 🔖 Version info
+VERSION = "v0.1.0"
+
+# 🔐 Vault setup
 VAULT_DIR = Path.home() / ".codevault"
 VAULT_FILE = VAULT_DIR / "snippets.enc"
 SALT_FILE = VAULT_DIR / "salt.bin"
@@ -23,6 +26,16 @@ def get_password(confirm=False):
 
 def main():
     parser = argparse.ArgumentParser(prog="codevault", description="Secure code snippet manager")
+    parser.add_argument('--version', action='store_true', help="Show CodeVault version")
+
+    # Parse known args first to check for version
+    args, remaining_args = parser.parse_known_args()
+    
+    if args.version:
+        print(f"CodeVault {VERSION}")
+        return
+
+    # Only now require subcommands
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # Add command
@@ -38,7 +51,8 @@ def main():
     # List command
     subparsers.add_parser("list", help="List all snippets")
 
-    args = parser.parse_args()
+    # Now parse full args
+    args = parser.parse_args(remaining_args)
 
     try:
         if not VAULT_FILE.exists():
